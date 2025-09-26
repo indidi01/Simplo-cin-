@@ -1,11 +1,17 @@
-import { useEffect, useState } from "react";
+function HomePage() {
+    return <h1>Page d'accueil</h1>;
+}
 
-const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
+export default HomePage;
 
-useEffect(() => {
-    const fetchMovies = async () => {
-        const movies = await getPopularMovies();
-        setPopularMovies(movies);
-    };
-    fetchMovies();
-}, []);
+// import { useEffect, useState } from "react";
+
+// const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
+
+// useEffect(() => {
+//     const fetchMovies = async () => {
+//         const movies = await getPopularMovies();
+//         setPopularMovies(movies);
+//     };
+//     fetchMovies();
+// }, []);
