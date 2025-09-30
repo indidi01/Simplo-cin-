@@ -30,7 +30,7 @@ console.log("Configuration du router créée :", router);
 
 const rootElement = document.getElementById("root");
 
-console.log("element 'root' trouvé dans lee HTML :", rootElement);
+console.log("element 'root' trouvé dans le HTML :", rootElement);
 
 if (rootElement) {
   createRoot(document.getElementById("root")!).render(
