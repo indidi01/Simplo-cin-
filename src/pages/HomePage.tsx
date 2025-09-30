@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { getPopularMovies } from "../api/tmdb"
 import type { MovieResult } from "../types/type";
-import MovieCard from "../components/MovieCard";
+import Carousel from "../components/Carousel";
 
 function HomePage() {
 
-  console.log("TEST DE LA VARIABLE D'ENV :", import.meta.env.VITE_TMDB_API_KEY);
+  // console.log("TEST DE LA VARIABLE D'ENV :", import.meta.env.VITE_TMDB_API_KEY);
   const [movies, setMovies] = useState<MovieResult[]>([]);
 
   useEffect(() => {
@@ -21,10 +21,8 @@ function HomePage() {
   return (
     <section>
       <h1>Page d'accueil</h1>
-      <div className="movies-grid">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+      <div>
+        <Carousel title="Films Populaires" movies={movies} />
       </div>
     </section>
   );
