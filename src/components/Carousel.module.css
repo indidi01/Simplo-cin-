@@ -11,10 +11,9 @@
 
 .carouselContent {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  /* overflow-x: auto;
-    overflow-y: hidden;
-    padding-left: 2rem; */
-  padding-bottom: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem;
+  gap: 1rem;
+  scroll-behavior: smooth;
 }
