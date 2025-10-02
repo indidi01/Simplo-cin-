@@ -11,6 +11,8 @@
 
 .card:hover {
     transform: scale(1.05);
+    filter: saturate(125%) contrast(125%);
+
 }
 
 .poster {

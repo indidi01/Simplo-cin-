@@ -1,3 +1,12 @@
+.carouselWrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.carouselWrapper:hover .scrollButton {
+  opacity: 1;
+}
+
 .carouselSection {
   margin-bottom: 2rem;
 }
@@ -7,13 +16,53 @@
   font-size: 1.4rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.carouselContainer {
+  position: relative;
+}
+
+.carouselContainer:hover .scrollButton {
+  opacity: 1;
 }
 
 .carouselContent {
   display: flex;
+  justify-content: center;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.5rem;
   gap: 1rem;
   scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.scrollButton {
+  border-radius: 8PX;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 2rem;
+  height: 50%;
+  background-color: rgba(20, 20, 20, alpha 0.2s);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.1s, opacity 0.2s;
+  opacity: 1;
+}
+
+.scrollButton:hover {
+  background-color: rgba(20, 20, 20, alpha 0.8);
+}
+
+.left {
+  left: 1rem;
+}
+
+.right {
+  right: 1rem;
 }

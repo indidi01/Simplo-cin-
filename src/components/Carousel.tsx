@@ -28,26 +28,29 @@ const Carousel = ({ title, movies }: CarouselProps) => {
   return (
     <section className={style.carouselWrapper}>
       <h2 className={style.carouselTitle}>{title}</h2>
+      <div>
+        <button
+          className={`${style.scrollButton} ${style.left}`}
+          onClick={goToPrevPage}
+        >
+          &lt;
+        </button>
 
-      <button
-        className={`${style.scrollButton} ${style.left}`}
-        onClick={goToPrevPage}
-      >
-        &lt;
-      </button>
+        <div className={style.carouselContainer}>
+          <div className={style.carouselContent}>
+            {visibleMovies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+          </div>
+        </div>
 
-      <div className={style.carouselContent}>
-        {visibleMovies.map((movie: MovieResult) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        <button
+          className={`${style.scrollButton} ${style.right}`}
+          onClick={goToNextPage}
+        >
+          &gt;
+        </button>
       </div>
-
-      <button
-        className={`${style.scrollButton} ${style.right}`}
-        onClick={goToNextPage}
-      >
-        &lt;
-      </button>
     </section>
   );
 };
