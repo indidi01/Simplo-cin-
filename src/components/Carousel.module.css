@@ -1,6 +1,9 @@
 .carouselWrapper {
-  position: relative;
+  width: 85%;
+  /* position: relative; */
+  margin: 0 auto;
   margin-bottom: 2rem;
+
 }
 
 .carouselWrapper:hover .scrollButton {
@@ -16,11 +19,14 @@
   font-size: 1.4rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
 }
 
 .carouselContainer {
+  /* width: 85%; */
   position: relative;
+  display: flex;
+  align-content: center;
 }
 
 .carouselContainer:hover .scrollButton {
@@ -29,10 +35,10 @@
 
 .carouselContent {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   gap: 1rem;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -59,10 +65,10 @@
   background-color: rgba(20, 20, 20, alpha 0.8);
 }
 
-.left {
-  left: 1rem;
+.scrollButton.left {
+  left: -3rem;
 }
 
-.right {
-  right: 1rem;
+.scrollButton.right {
+  right: -3rem;
 }

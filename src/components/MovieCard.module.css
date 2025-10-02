@@ -1,3 +1,9 @@
+/* .cardLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+} */
+
 .card {
     width: 200px;
     margin: 0;
@@ -5,19 +11,27 @@
     border-radius: 8px;
     overflow: hidden;
     color: #fff;
-    transition: transform 0.05s ease-in-out;
+    transition: all 0.05s ease-in-out;
     flex-shrink: 0;
 }
 
 .card:hover {
     transform: scale(1.05);
+    z-index: 5;
     filter: saturate(125%) contrast(125%);
-
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
+
+/* .imageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+} */
 
 .poster {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     aspect-ratio: 2/3;
     object-fit: cover;
