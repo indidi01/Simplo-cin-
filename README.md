@@ -1,3 +1,14 @@
+# Organisation des fichiers
+
+/src
+|-- /api              # Pour la logique d'appel à l'API TMDB
+|-- /components       # Pour les composants réutilisables (ex: un bouton, une carte de film)
+|-- /pages            # Pour les composants qui représentent une page (Accueil, DétailFilm, etc.)
+|-- /hooks            # Pour les hooks personnalisés (ex: un hook pour fetcher les données)
+|-- /types            # Pour y définir vos interfaces TypeScript (ex: le type pour un objet Film)
+|-- App.tsx
+|-- index.tsx
+  
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

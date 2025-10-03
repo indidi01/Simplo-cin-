@@ -1,0 +1,49 @@
+/* .cardLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+} */
+
+.card {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    background-color: #272727;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #fff;
+    transition: all 0.05s ease-in-out;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    z-index: 5;
+    filter: saturate(125%) contrast(125%);
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); */
+}
+
+/* .imageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+} */
+
+.poster {
+    width: 100%;
+    /* height: 100%; */
+    display: block;
+    /* aspect-ratio: 4/3; */
+    object-fit: cover;
+}
+
+.title {
+    font-size: 0.5rem;
+    padding: 0.75rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

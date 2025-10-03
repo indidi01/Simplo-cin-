@@ -1,0 +1,80 @@
+.carouselWrapper {
+  width: 85%;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.carouselWrapper:hover .scrollButton {
+  opacity: 1;
+}
+
+.carouselSection {
+  margin-bottom: 2rem;
+}
+
+.carouselTitle {
+  color: #fefefe;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  /* padding-left: 2rem; */
+}
+
+/* .carouselContainer {
+  /* width: 85%; */
+  /* position: relative;
+  padding: 0; */
+  /* display: flex;
+  align-content: center; */
+/* } */
+
+.carouselContainer:hover .scrollButton {
+  opacity: 1;
+}
+
+.carouselContent {
+  display: flex;
+  /* justify-content: center; */
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 2rem;
+  scroll-padding-right: 2rem;
+}
+
+
+.scrollButton {
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 2rem;
+  height: 50%;
+  background-color: rgba(20, 20, 20, alpha 0.2s);
+  backdrop-filter: blur(50%);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.1s, opacity 0.2s;
+  opacity: 1;
+}
+
+.scrollButton:hover {
+  background-color: rgba(20, 20, 20, alpha 0.8);
+}
+
+.scrollButton.left {
+  left: -3rem;
+}
+
+.scrollButton.right {
+  right: -3rem;
+}
