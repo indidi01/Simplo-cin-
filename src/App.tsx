@@ -4,10 +4,11 @@ import './App.css';
 function App() {
   return (
     <div>
-      <nav>
+      <header>
+      <nav className='nav'>
         <Link to="/">Accueil</Link> | <Link to="/movies">Films</Link> | <Link to="/series">Séries</Link>
       </nav>
-      <h1>Simplo'ciné</h1>
+      </header>
       <main>
         <Outlet />
       </main>
