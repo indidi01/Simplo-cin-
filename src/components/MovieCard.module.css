@@ -7,19 +7,21 @@
 .card {
     width: 200px;
     margin: 0;
+    padding: 0;
     background-color: #181818;
     border-radius: 8px;
     overflow: hidden;
     color: #fff;
     transition: all 0.05s ease-in-out;
     flex-shrink: 0;
+    scroll-snap-align: center;
 }
 
 .card:hover {
     transform: scale(1.05);
     z-index: 5;
     filter: saturate(125%) contrast(125%);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); */
 }
 
 /* .imageContainer {

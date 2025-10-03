@@ -1,7 +1,7 @@
+import { useRef, useState, useEffect } from "react";
 import type { MovieResult } from "../types/type";
 import MovieCard from "./MovieCard";
-import style from "./Carousel.module.css";
-import { useRef, useState } from "react";
+import styles from "./Carousel.module.css";
 
 interface CarouselProps {
   title: string;
@@ -10,55 +10,65 @@ interface CarouselProps {
 
 const Carousel = ({ title, movies }: CarouselProps) => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(true);
 
+  // Défilement avec les boutons
   const scroll = (direction: "left" | "right") => {
     if (!carouselRef.current) return;
 
-    const scrollAmount = carouselRef.current.clientWidth * 0.8;
-    const newScrollLeft =
-      direction === "left"
-        ? carouselRef.current.scrollLeft - scrollAmount
-        : carouselRef.current.scrollLeft + scrollAmount;
-
-    carouselRef.current.scrollTo({
-      left: newScrollLeft,
-      behavior: "smooth",
+    // Scroll classique (style Netflix)
+    const scrollAmount = carouselRef.current.clientWidth;
+    carouselRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
     });
   };
 
-  const handleScroll = () => {
+  // Gestion de l'affichage des flèches
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+
+  const updateArrows = () => {
     if (!carouselRef.current) return;
 
     const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-
-    setShowLeftArrow(scrollLeft > 0);
-    setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
+    setShowLeftArrow(scrollLeft > 5);
+    setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 5);
   };
 
-  if (movies.length === 0) {
-    return null;
-  }
+  // Défilement sourie
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      carousel.scrollLeft += e.deltaY * 5;
+      updateArrows();
+    };
+    carousel.addEventListener("wheel", handleWheel, { passive: false });
+    updateArrows();
+    return () => {
+      carousel.removeEventListener("wheel", handleWheel);
+    };
+  }, [movies]);
 
   return (
-    <section className={style.carouselWrapper}>
-      <h2 className={style.carouselTitle}>{title}</h2>
+    <section className={styles.carouselWrapper}>
+      <h2 className={styles.carouselTitle}>{title}</h2>
 
-      <div className={style.carouselContainer}>
+      <div className={styles.carouselContainer}>
         {showLeftArrow && (
           <button
-            className={`${style.scrollButton} ${style.left}`}
+            className={`${styles.scrollButton} ${styles.left}`}
             onClick={() => scroll("left")}
+            aria-label="Défiler vers la gauche"
           >
             &lt;
           </button>
         )}
 
         <div
-          className={style.carouselContent}
+          className={styles.carouselContent}
           ref={carouselRef}
-          onScroll={handleScroll}
+          onScroll={updateArrows}
         >
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
@@ -67,8 +77,9 @@ const Carousel = ({ title, movies }: CarouselProps) => {
 
         {showRightArrow && (
           <button
-            className={`${style.scrollButton} ${style.right}`}
+            className={`${styles.scrollButton} ${styles.right}`}
             onClick={() => scroll("right")}
+            aria-label="Défiler vers la droite"
           >
             &gt;
           </button>

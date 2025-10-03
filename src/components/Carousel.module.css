@@ -1,9 +1,8 @@
 .carouselWrapper {
   width: 85%;
-  /* position: relative; */
+  position: relative;
   margin: 0 auto;
   margin-bottom: 2rem;
-
 }
 
 .carouselWrapper:hover .scrollButton {
@@ -15,19 +14,21 @@
 }
 
 .carouselTitle {
-  color: #e5e5e5;
+  color: #1a0101;
   font-size: 1.4rem;
-  margin-left: 1rem;
+  font-weight: 600;
+  margin-left: 2rem;
   margin-bottom: 1rem;
   /* padding-left: 2rem; */
 }
 
-.carouselContainer {
+/* .carouselContainer {
   /* width: 85%; */
-  position: relative;
-  display: flex;
-  align-content: center;
-}
+  /* position: relative;
+  padding: 0; */
+  /* display: flex;
+  align-content: center; */
+/* } */
 
 .carouselContainer:hover .scrollButton {
   opacity: 1;
@@ -38,14 +39,18 @@
   /* justify-content: center; */
   overflow-x: auto;
   overflow-y: hidden;
-  /* padding: 0.5rem; */
+  padding: 0.5rem;
   gap: 1rem;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 2rem;
+  scroll-padding-right: 2rem;
 }
 
+
 .scrollButton {
-  border-radius: 8PX;
+  border-radius: 8px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -53,6 +58,7 @@
   width: 2rem;
   height: 50%;
   background-color: rgba(20, 20, 20, alpha 0.2s);
+  backdrop-filter: blur(50%);
   border: none;
   color: white;
   font-size: 2rem;
